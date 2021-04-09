@@ -1,7 +1,8 @@
 # Introducción
-La prueba se puede ver en https://rorode8.github.io/cringe.github.io/
+El prototipo primero en moqups https://app.moqups.com/wUbfIQd0Q3/view/page/ad64222d5
+La prueba se puede ver en https://rorode8.github.io/cringe.github.io/ (esta es la que utilizamos para las pruebas)
 # videos
-Los videos están en: [video]
+Los videos están en: https://youtu.be/BY6aAux_EwI
 # anotaciones
 Luis Estudiante del ITAM va a registrar a sus abuelos para una cita de vacunación
 
