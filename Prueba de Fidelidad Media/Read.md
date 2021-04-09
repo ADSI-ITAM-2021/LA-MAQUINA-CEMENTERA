@@ -2,7 +2,7 @@
 El prototipo primero en moqups https://app.moqups.com/wUbfIQd0Q3/view/page/ad64222d5
 La prueba se puede ver en https://rorode8.github.io/cringe.github.io/ (esta es la que utilizamos para las pruebas)
 # videos
-Los videos están en: 
+Los videos están en: https://youtu.be/QFOrbyeMIig
 # anotaciones
 Luis Estudiante del ITAM va a registrar a sus abuelos para una cita de vacunación
 
