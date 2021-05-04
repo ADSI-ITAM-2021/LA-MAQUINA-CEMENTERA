@@ -20,6 +20,8 @@ def hello_world():
 
 @app.route('/registrar/<string:curp>')
 def registrar(curp):
+	if(len(curp)!=18):
+		return 'cringe'
 	return curp
 
 @app.route('/datos')
