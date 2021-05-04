@@ -24,7 +24,7 @@
         <div class="col"><p></p></div>
         <div class="col">
           <img
-            src="./assets/la_maquina.png"
+            src="pagina-web/templates/assets/la_maquina.png"
             class="card-img-top"
             alt="LaMaquina"
             widht="200"
@@ -42,43 +42,39 @@
           border: 0;
         "
       >
-        
         <div class="card-body" style="width: 65%">
           <form method="POST" action="/" id="form1">
-          <h3 class="card-title">Ingresa tu CURP</h3>
-          <input
-            name="clave"
-            type="text"
-            class="form-control"
-            id="curp"
-            aria-describedby="emailHelp"
-            required
-          />
-          <br />
-          <div class="row">
-            <div class="col">
-              <button type="submit" class="btn btn-primary"
-                ><span style="font-weight: bold">Registrar</span>
-              </button>
-            </div>
-            <div class="col-md-auto">
-              <a href="{{url_for('datos')}}" class="btn btn-warning"
-                ><span style="font-weight: bold"
-                  >No sé mi CURP</span
+            <h3 class="card-title">Ingresa tu CURP</h3>
+            <input
+              name="clave"
+              type="text"
+              class="form-control"
+              id="curp"
+              aria-describedby="emailHelp"
+              required
+            />
+            <br />
+            <div class="row">
+              <div class="col">
+                <button type="submit" class="btn btn-primary">
+                  <span style="font-weight: bold">Registrar</span>
+                </button>
+              </div>
+              <div class="col-md-auto">
+                <a href="{{url_for('datos')}}" class="btn btn-warning"
+                  ><span style="font-weight: bold">No sé mi CURP</span>
+                </a>
+              </div>
+              <div class="col-md-auto">
+                <a href="{{url_for('varios')}}" class="btn btn-info"
+                  ><span style="font-weight: bold"
+                    >Registrar Varias Personas</span
+                  ></a
                 >
-              </a>
+              </div>
             </div>
-            <div class="col-md-auto">
-              <a href="{{url_for('varios')}}" class="btn btn-info"
-                ><span style="font-weight: bold"
-                  >Registrar Varias Personas</span
-                ></a
-              >
-            </div>
-          </div>
           </form>
         </div>
-      
       </div>
     </div>
     <script
