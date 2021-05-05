@@ -3,6 +3,7 @@ import json
 import requests
 import smtplib, ssl
 import pymongo
+import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pyfiscal.generate import GenerateRFC, GenerateCURP, GenerateNSS, GenericGeneration
