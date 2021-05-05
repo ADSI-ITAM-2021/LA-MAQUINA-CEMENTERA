@@ -59,7 +59,7 @@ def confirm(curp):
 			'mail':mail,'zip_code':zipc, 'folio':f}
 
 			users.insert_one(doc)
-            #send mail
+            sendMail(nombre, f)
 			return render_template('confirm.html',fol=f)
 
 	else:
@@ -106,7 +106,7 @@ def varios():
 if __name__ == '__main__':
 	app.run(debug=True)
 
-def sendMail(centroV,diaV,urlMap):
+def sendMail(nombre,folio):
     port = 465  # For SSL
     mail = 'aadsi6449@gmail.com'
     password = 'Adsi123Adsi'
@@ -124,9 +124,11 @@ def sendMail(centroV,diaV,urlMap):
     Su cita a quedado guardada para el día 30 de septiembre de 2021
     En el centro de vacunación de ITAM campus Santa Teresa
     """
-    html = ""
+    rawhtml = ""
     with open(os.path.join('templates','mail.txt'), 'r', encoding='utf8') as file:
-        html = file.read().replace('\n', '')
+        rawhtml = file.read().replace('\n', '')
+    html = rawhtml.replace("NOMBRE",nombre)
+    html = html.replace("NFOLIO",folio)
 
     part1 = MIMEText(text, "plain")
     part2 = MIMEText(html, "html")
