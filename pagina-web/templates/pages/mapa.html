@@ -121,7 +121,7 @@
         };
         // Perform a nearby search.
         service.nearbySearch(
-          { location: pyrmont, radius: 500, type: "doctor" },
+          { location: pyrmont, radius: 500, type: "hospital" },
           (results, status, pagination) => {
             if (status !== "OK" || !results) return;
             addPlaces(results, map);
@@ -178,7 +178,7 @@
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt6PjLjVxYUVkKxwkJqD-3By6KYNmI7Es&callback=initMap&libraries=places&v=weekly&map_ids=8d193001f940fde3"
+      src="https://maps.googleapis.com/maps/api/js?key=llave&callback=initMap&libraries=places&v=weekly&map_ids=8d193001f940fde3"
       async
     ></script>
     <script
