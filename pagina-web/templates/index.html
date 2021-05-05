@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ya Casi Estás Ahí</title>
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+      href="{{ url_for('static', filename='css/style2.css') }}"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      href="{{ url_for('static', filename='css/style3.css') }}"
     />
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
   </head>
   <body>
     <div class="registration-form">
