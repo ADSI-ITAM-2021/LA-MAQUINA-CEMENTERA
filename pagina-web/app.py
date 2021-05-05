@@ -2,8 +2,15 @@ from flask import Flask, render_template, url_for, request, redirect
 import json
 import requests
 import smtplib, ssl
+import pymongo
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+with open('tokens.json') as json_file:
+    data = json.load(json_file)
+
+client = pymongo.MongoClient(data['mongo'])
+users = client['lamaquina'].usuarios
 
 app = Flask(__name__)
 
@@ -25,6 +32,21 @@ def hello_world():
 
 @app.route('/registrar/<string:curp>')
 def registrar(curp):
+
+	match2 = users.find_one({"id":curp});
+
+	#no es un curp
+	if(len(curp)!=18):
+		return 'CURP invalido';
+
+	print(match2)
+
+	#el curp ya esta
+	if(match2):
+		return "CURP registrado"
+
+	#cargar pagina para rellenar el resto de los datos
+	#render_template('index.html', request_method=request_method)
 	return curp
 
 @app.route('/datos')
