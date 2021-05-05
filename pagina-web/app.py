@@ -5,6 +5,13 @@ import smtplib, ssl
 import pymongo
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from pyfiscal.generate import GenerateRFC, GenerateCURP, GenerateNSS, GenericGeneration
+
+
+
+
+class GenerateDataFiscal(GenericGeneration):
+	generadores = (GenerateCURP, GenerateRFC)
 
 with open('tokens.json') as json_file:
     data = json.load(json_file)
@@ -28,7 +35,38 @@ def hello_world():
 
 	return render_template('index.html', request_method=request_method)
 
+@app.route('/confirm/<string:curp>', methods=['GET', 'POST'])
+def confirm(curp):
+	request_method = request.method
+	if request.method == 'POST':
+		print('------------------------------------------')
+		print(request.form)
+		nombre =	request.form['nombre']
+		apellido = request.form['apellido']
+		mail = request.form['mail']
+		zipc  = request.form['zip']
+		#check if curp is registered again
+		match2 = users.find_one({"id":curp});
+		if(match2):
+			return "CURP registrado"
+		else:
+			match = users.find_one({}, sort=[("folio", pymongo.DESCENDING)])
 
+			f = int(match['folio'])
+			f +=1
+			doc = {'id':curp,'nombre':nombre, 'apellido':apellido, 
+			'mail':mail,'zip_code':zipc, 'folio':f}
+
+			users.insert_one(doc)
+
+			return render_template('confirm.html',fol=f)
+
+			#send mail here
+
+	else:
+		return 'error'
+	
+	return 'cock'
 
 @app.route('/registrar/<string:curp>', methods=['GET', 'POST'])
 def registrar(curp):
@@ -43,6 +81,7 @@ def registrar(curp):
 
 	print(match2)
 
+
 	#el curp ya esta
 	if(match2):
 		return "CURP registrado"
@@ -50,6 +89,8 @@ def registrar(curp):
 	#cargar pagina para rellenar el resto de los datos
 	#if request.method == 'POST':
 		#render_template('register.html', request_method=request_method)
+
+	
 	return render_template('register.html',clav=curp, request_method=request_method)
 
 
