@@ -30,8 +30,10 @@ def hello_world():
 
 
 
-@app.route('/registrar/<string:curp>')
+@app.route('/registrar/<string:curp>', methods=['GET', 'POST'])
 def registrar(curp):
+
+	request_method = request.method
 
 	match2 = users.find_one({"id":curp});
 
@@ -46,8 +48,11 @@ def registrar(curp):
 		return "CURP registrado"
 
 	#cargar pagina para rellenar el resto de los datos
-	#render_template('index.html', request_method=request_method)
-	return curp
+	#if request.method == 'POST':
+		#render_template('register.html', request_method=request_method)
+	return render_template('register.html',clav=curp, request_method=request_method)
+
+
 
 @app.route('/datos')
 def datos():
