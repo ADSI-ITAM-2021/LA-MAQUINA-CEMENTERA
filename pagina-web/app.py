@@ -125,7 +125,7 @@ def datos():
 		curpaprox = GenerateCURP(**kwargs)
 		curpgen = curpaprox.data
 		print(curpgen)
-		return redirect(url_for('registrar',curp=c))
+		return redirect(url_for('registrar',curp=curpgen))
 
 	return render_template('sinCURP.html')
 
