@@ -38,6 +38,43 @@ def hello_world():
 
 	return render_template('index.html', request_method=request_method)
 
+def sendMail(nombre,folio):
+    port = 465  # For SSL
+    mail = 'aadsi6449@gmail.com'
+    password = 'Adsi123Adsi'
+    receiver = 'josepe430@gmail.com'
+
+    message =  MIMEMultipart("alternative")
+    message["Subject"] = "Confirmación registro MiVacuna"
+    message["From"] = mail
+    message["To"] = receiver
+
+    text = """\
+    X
+    Estimado o estimada,
+    Le agradecemos haberse registrado para el plan de vacunación contra el COVID-19
+    Su cita a quedado guardada para el día 30 de septiembre de 2021
+    En el centro de vacunación de ITAM campus Santa Teresa
+    """
+    rawhtml = ""
+    with open(os.path.join('templates','mail.txt'), 'r', encoding='utf8') as file:
+        rawhtml = file.read().replace('\n', '')
+    html = rawhtml.replace("NOMBRE",nombre)
+    html = html.replace("NFOLIO",folio)
+
+    part1 = MIMEText(text, "plain")
+    part2 = MIMEText(html, "html")
+
+    message.attach(part1)
+    message.attach(part2)
+
+    # Create a secure SSL context
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
+        server.login(mail, password)
+        server.sendmail(mail, receiver, message.as_string())
+
 @app.route('/confirm/<string:curp>', methods=['GET', 'POST'])
 def confirm(curp):
 	request_method = request.method
@@ -155,40 +192,3 @@ def varios():
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-def sendMail(nombre,folio):
-    port = 465  # For SSL
-    mail = 'aadsi6449@gmail.com'
-    password = 'Adsi123Adsi'
-    receiver = 'josepe430@gmail.com'
-
-    message =  MIMEMultipart("alternative")
-    message["Subject"] = "Confirmación registro MiVacuna"
-    message["From"] = mail
-    message["To"] = receiver
-
-    text = """\
-    X
-    Estimado o estimada,
-    Le agradecemos haberse registrado para el plan de vacunación contra el COVID-19
-    Su cita a quedado guardada para el día 30 de septiembre de 2021
-    En el centro de vacunación de ITAM campus Santa Teresa
-    """
-    rawhtml = ""
-    with open(os.path.join('templates','mail.txt'), 'r', encoding='utf8') as file:
-        rawhtml = file.read().replace('\n', '')
-    html = rawhtml.replace("NOMBRE",nombre)
-    html = html.replace("NFOLIO",folio)
-
-    part1 = MIMEText(text, "plain")
-    part2 = MIMEText(html, "html")
-
-    message.attach(part1)
-    message.attach(part2)
-
-    # Create a secure SSL context
-    context = ssl.create_default_context()
-
-    with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
-        server.login(mail, password)
-        server.sendmail(mail, receiver, message.as_string())
