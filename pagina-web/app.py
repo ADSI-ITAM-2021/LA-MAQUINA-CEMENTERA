@@ -77,9 +77,7 @@ def mapa(zipc):
 		#mandar coordinadas al mapa por aqui
 		nomi = pgeocode.Nominatim('mx')
 		df = nomi.query_postal_code(postal.toString())
-		lat = df.latitude
-		lng = df.longitude
-		return render_template('mapa.html',zip_code=postal)
+		return render_template('mapa.html',lat = df.latitude, lng=df.longitude)
 	except:
 		return 'error'
 
