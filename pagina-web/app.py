@@ -81,7 +81,7 @@ def sendMail(nombre,folio,email):
 
     print('checkpoint4')
 
-    with smtplib.SMTP("smtp.gmail.com", 587) as server:
+    with smtplib.SMTP('smtp.gmail.com','465') as server:
     	print('checkpoint5')
     	server.ehlo()
     	server.starttls()
