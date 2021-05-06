@@ -53,7 +53,7 @@
                                                                                     <td align="center" class="esd-block-image" style="font-size: 0px;"><a target="_blank" href="https://www.gob.mx"><img class="adapt-img" src="https://demo.stripocdn.email/content/guids/21403aec-f80d-41a8-a23c-f9487ea4208b/images/12701620172029019.png" alt style="display: block;" width="560"></a></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td align="center" class="esd-block-image" style="font-size: 0px;"><a target="_blank"><img class="adapt-img" src="https://demo.stripocdn.email/content/guids/21403aec-f80d-41a8-a23c-f9487ea4208b/images/99261620173259461.png" alt style="display: block;" width="100"></a></td>
+                                                                                    <td align="center" class="esd-block-image" style="font-size: 0px;"><a target="_blank" href="https://www.youtube.com/watch?v=0bQ7i-i6nXk"><img class="adapt-img" src="https://demo.stripocdn.email/content/guids/21403aec-f80d-41a8-a23c-f9487ea4208b/images/99261620173259461.png" alt style="display: block;" width="100"></a></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td align="center" class="esd-block-image" style="font-size: 0px;"><a target="_blank" href="https://www.cementocruzazul.com.mx"><img class="adapt-img" src="https://demo.stripocdn.email/content/guids/21403aec-f80d-41a8-a23c-f9487ea4208b/images/16991620172780041.png" alt style="display: block;" width="560"></a></td>
@@ -88,22 +88,17 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td class="esd-block-text es-p10t es-p5b es-p20r es-p20l es-m-txt-l" bgcolor="transparent" align="left">
-                                                                                        <h3 style="color: #2980d9;">Estimado o estimada,</h3>
+                                                                                        <h3 style="color: #2980d9;">¡Gracias NOMBRE!</h3>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td class="esd-block-text es-p10t es-p20r es-p20l" bgcolor="transparent" align="left">
-                                                                                        <p>Le agradecemos haberse registrado para el plan de vacunación contra el COVID-19</p>
+                                                                                        <p>Ya completaste tu registro para el plan de vacunación contra el COVID-19.<br>Tu cita ha quedado agendada.<br><br></p>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td class="esd-block-text es-p5t es-p20r es-p20l" bgcolor="transparent" align="left">
-                                                                                        <p>Su cita a quedado guardada para el día {diaV}</p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="esd-block-text es-p5t es-p5b es-p20r es-p20l" bgcolor="transparent" align="left">
-                                                                                        <p>En el centro de vacunación de {centroV}</p>
+                                                                                        <p>Tu número de folio:</p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -139,40 +134,23 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <table class="es-content" cellspacing="0" cellpadding="0" align="center">
+                        <table cellpadding="0" cellspacing="0" class="es-content" align="center">
                             <tbody>
                                 <tr>
-                                    <td class="esd-stripe" align="center" esd-custom-block-id="61184">
-                                        <table class="es-content-body" style="background-color: transparent;" width="600" cellspacing="0" cellpadding="0" bgcolor="transparent" align="center">
+                                    <td class="esd-stripe" align="center">
+                                        <table bgcolor="#ffffff" class="es-content-body" align="center" cellpadding="0" cellspacing="0" width="600">
                                             <tbody>
                                                 <tr>
-                                                    <td class="esd-structure es-p20t es-p20b" style="background-position: center bottom;" align="left">
-                                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                                    <td class="es-p20t es-p20r es-p20l esd-structure" align="left">
+                                                        <table cellpadding="0" cellspacing="0" width="100%">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td class="esd-container-frame" esd-custom-block-id="14364" width="600" align="left">
-                                                                        <table style="background-color: #ffffff; border-radius: 5px; border-collapse: separate;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+                                                                    <td width="560" class="esd-container-frame" align="center" valign="top">
+                                                                        <table cellpadding="0" cellspacing="0" width="100%">
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td>
-                                                                                        <table class="es-table-not-adapt" cellspacing="0" cellpadding="0">
-                                                                                            <tbody>
-                                                                                                <tr>
-                                                                                                    <td class="esd-block-image es-p10t es-p5b es-p10r es-p20l" valign="top" align="left" style="font-size:0"><a href="{urlMap}" target="_blank"><img src="https://uxyja.stripocdn.email/content/guids/CABINET_b748f68723c08ea6110c059c05f4df42/images/48681566985721743.png" alt style="display: block;" width="18"></a></td>
-                                                                                                    <td align="left">
-                                                                                                        <table width="100%" cellspacing="0" cellpadding="0">
-                                                                                                            <tbody>
-                                                                                                                <tr>
-                                                                                                                    <td class="esd-block-text es-p5t es-p5b" align="left">
-                                                                                                                        <p style="color: #333333; line-height: 120%; font-size: 15px;">{centroV}</p>
-                                                                                                                    </td>
-                                                                                                                </tr>
-                                                                                                            </tbody>
-                                                                                                        </table>
-                                                                                                    </td>
-                                                                                                </tr>
-                                                                                            </tbody>
-                                                                                        </table>
+                                                                                    <td align="center" class="esd-block-text">
+                                                                                        <p style="font-size:80px;">NFOLIO</p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
