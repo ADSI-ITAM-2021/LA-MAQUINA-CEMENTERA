@@ -41,6 +41,8 @@ def hello_world():
 	return render_template('index.html', request_method=request_method)
 
 def sendMail(nombre,folio,email):
+
+	print('checkpoint1')
     #port = 465  # For SSL
     mail = 'aadsi6449@gmail.com'
     password = 'Adsi123Adsi'
@@ -50,6 +52,8 @@ def sendMail(nombre,folio,email):
     message["Subject"] = "Confirmación registro MiVacuna"
     message["From"] = mail
     message["To"] = receiver
+
+    print('checkpoint2')
 
     text = """\
     X
@@ -64,6 +68,8 @@ def sendMail(nombre,folio,email):
     html = rawhtml.replace("NOMBRE",nombre)
     html = html.replace("NFOLIO",folio)
 
+    print('checkpoint3')
+
     part1 = MIMEText(text, "plain")
     part2 = MIMEText(html, "html")
 
@@ -73,11 +79,16 @@ def sendMail(nombre,folio,email):
     # Create a secure SSL context
     #context = ssl.create_default_context()
 
+    print('checkpoint4')
+
     with smtplib.SMTP("smtp.gmail.com", 587) as server:
+    	print('checkpoint5')
     	server.ehlo()
     	server.starttls()
     	server.ehlo()
+    	print('checkpoint6')
     	server.login(mail,password)
+    	print('checkpoint7')
     	server.sendmail(mail, receiver, message.as_string())
         
 
