@@ -109,10 +109,13 @@ def confirm(curp):
 			except:
 				return 'cringe 1'
 
-			#try:	
-				#sendMail(str(nombre), str(f), str(mail))
-			#except:
-				#return 'cringe 2'
+			try:	
+				print('trying mail')
+				sendMail(str(nombre), str(f), str(mail))
+				
+			except:
+				return 'cringe 2'
+			print('success')
 			return render_template('confirm.html', postal = zipc ,fol=f)
 
 	else:
