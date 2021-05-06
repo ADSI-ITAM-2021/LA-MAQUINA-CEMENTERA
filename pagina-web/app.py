@@ -4,6 +4,7 @@ import requests
 import smtplib, ssl
 import pymongo
 import os
+import pgeocode
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pyfiscal.generate import GenerateRFC, GenerateCURP, GenerateNSS, GenericGeneration
@@ -73,6 +74,10 @@ def mapa(zipc):
 	try:
 		postal = int(zipc)
 		#mandar coordinadas al mapa por aqui
+		nomi = pgeocode.Nominatim('mx')
+		df = nomi.query_postal_code(postal.toString())
+		lat = df.latitude
+		lng = df.longitude
 		return render_template('mapa.html',zip_code=postal)
 	except:
 		return 'error'
