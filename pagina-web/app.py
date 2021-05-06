@@ -8,6 +8,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pyfiscal.generate import GenerateRFC, GenerateCURP, GenerateNSS, GenericGeneration
 
+
+
 class GenerateDataFiscal(GenericGeneration):
 	generadores = (GenerateCURP, GenerateRFC)
 
@@ -57,7 +59,7 @@ def confirm(curp):
 
 			users.insert_one(doc)
 			sendMail(nombre, f)
-			return render_template('confirm.html',fol=f)
+			return render_template('confirm.html', postal = zipc ,fol=f)
 
 	else:
 		return 'error'
@@ -91,9 +93,28 @@ def registrar(curp):
 
 
 
-@app.route('/datos')
+@app.route('/datos', methods=['GET', 'POST'])
 def datos():
-	return 'datos'
+	request_method = request.method
+	if request.method == 'POST':
+		print(request.form)
+		s=request.form['fecha']
+		fech = s[8:]+'-'+s[5:7]+'-'+s[0:4]
+		kwargs = {
+		"complete_name": request.form['nombre'],
+		"last_name": request.form['apellidopat'],
+		"mother_last_name": request.form['apellidomat'],
+		"birth_date": fech,
+		"gender": request.form['gender'],
+		"city": request.form['estado'],
+		"state_code": "11111"
+		}
+		curpaprox = GenerateCURP(**kwargs)
+		curpgen = curpaprox.data
+		print(curpgen)
+		return redirect(url_for('registrar',curp=c))
+
+	return render_template('sinCURP.html')
 
 @app.route('/varios')
 def varios():

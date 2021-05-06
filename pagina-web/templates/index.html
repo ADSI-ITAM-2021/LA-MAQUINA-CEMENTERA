@@ -18,6 +18,7 @@
   <body>
     <div class="registration-form">
       <form method="POST" action="/" >
+        <div>
         <div class="row align-items-center">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Escudo_del_Cruz_Azul_AC.svg/1200px-Escudo_del_Cruz_Azul_AC.svg.png"
@@ -53,13 +54,18 @@
         <br />
         <div class="row align-items-center">
           <div class="col-md-auto">
-            <button class="btnVarios draw-border" type="submit">No sé Mi CURP</button>
+            <a href="{{url_for('datos')}}" style="text-decoration: none; color: black; font-weight: bold;">
+              <p class="btnVarios draw-border" style="font-weight: bold;">No sé Mi CURP</p>
+            </a>
           </div>
           <div class="col-md-auto"></div>
           <div class="col">
-            <button class="btnIDK draw-border" type="submit">Registrar Varias Personas</button>
+              <a href="{{url_for('varios')}}" style="text-decoration: none; color: black; font-weight: bold;text-align: center;">
+                <p class="btnIDK draw-border" style="font-weight: bold;">Registrar Varias Personas</p>
+              </a>
           </div>
         </div>
+      </div>
       </form>
     </div>
     <script
