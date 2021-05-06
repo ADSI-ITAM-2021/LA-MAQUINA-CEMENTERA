@@ -61,7 +61,7 @@ def confirm(curp):
 				'mail':mail,'zip_code':zipc, 'folio':f}
 
 			users.insert_one(doc)
-			sendMail(nombre, f)
+			sendMail(str(nombre), str(f))
 			return render_template('confirm.html', postal = zipc ,fol=f)
 
 	else:
