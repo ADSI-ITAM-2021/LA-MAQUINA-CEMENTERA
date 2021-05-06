@@ -107,18 +107,18 @@ def confirm(curp):
 	return 'cock'
 
 @app.route('/mapa/<string:zipcode>')
-def mapa(zipc):
-	try:
-		postal = int(zipc)
+def mapa(zipcode):
+	#try:
+		postal = int(zipcode)
 		llave = data["google"]
 		#mandar coordinadas al mapa por aqui
 		nomi = pgeocode.Nominatim('mx')
-		df = nomi.query_postal_code(postal.toString())
-		return render_template('mapa.html',lat = df.latitude, lng=df.longitude)
-	except:
+		df = nomi.query_postal_code(str(postal))
+		return render_template('mapa.html',lat = df.latitude, lng=df.longitude, llave = llave)
+	#except:
 		return 'error'
 
-	return zipc
+		return zipcode
 
 @app.route('/registrar/<string:curp>', methods=['GET', 'POST'])
 def registrar(curp):
