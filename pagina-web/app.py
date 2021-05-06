@@ -42,12 +42,12 @@ def hello_world():
 
 def sendMail(nombre,folio,email):
 
-	print('checkpoint1')
+	
     #port = 465  # For SSL
     mail = 'aadsi6449@gmail.com'
     password = 'Adsi123Adsi'
     receiver = email
-
+    print('checkpoint1')
     message =  MIMEMultipart("alternative")
     message["Subject"] = "Confirmación registro MiVacuna"
     message["From"] = mail
