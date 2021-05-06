@@ -26,6 +26,15 @@
         <div class="form-icon">
           <span><i class="icon icon-user"></i></span>
         </div>
+        {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class=flashes>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                         {% endfor %}
+                        </ul>
+                    {% endif %}
+        {% endwith %}
         <div class="form-group">
           <input
             type="text"
