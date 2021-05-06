@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 import json
 import requests
 import smtplib, ssl
@@ -7,6 +7,7 @@ import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pyfiscal.generate import GenerateRFC, GenerateCURP, GenerateNSS, GenericGeneration
+
 
 
 
@@ -20,6 +21,7 @@ client = pymongo.MongoClient(data['mongo'])
 users = client['lamaquina'].usuarios
 
 app = Flask(__name__)
+app.secret_key = data['mongo']
 
 @app.route('/', methods=['GET', 'POST'])
 def hello_world():
@@ -67,7 +69,7 @@ def confirm(curp):
 	return 'cock'
 
 @app.route('/mapa/<string:zipcode>')
-def registrar(zipc):
+def mapa(zipc):
 	try:
 		postal = int(zipc)
 		#mandar coordinadas al mapa por aqui
@@ -132,12 +134,23 @@ def varios():
 	request_method = request.method
 	if request.method == 'POST':
 		print('not cringe')
+		print(request.form)
+		
+		curps = request.form['texts'].split(',')
+		for c in curps:
+			if(len(c)!=18):
+				flash('Al menos un CURP es incorrecto')
+				return render_template('varios.html', request_method=request_method)
+		#upload to mongodb here
+		#for c in curps:
 
-	return render_template('varios.html')
+
+	return render_template('varios.html', request_method=request_method)
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+    app.run(debug=True)
+
 
 def sendMail(nombre,folio):
     port = 465  # For SSL

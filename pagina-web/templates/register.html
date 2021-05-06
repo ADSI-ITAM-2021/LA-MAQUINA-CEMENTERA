@@ -8,12 +8,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}" />
+    <script src="https://kit.fontawesome.com/81a78cd1d8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="registration-form">
         <form method='POST' action="{{ url_for('confirm', curp=clav) }}">
             <div class="form-icon">
-                <span><i class="icon icon-user"></i></span>
+                <span><i class="fas fa-syringe"></i></span>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" id="username" placeholder="Nombre" required name = "nombre">
