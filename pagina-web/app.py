@@ -40,11 +40,11 @@ def hello_world():
 
 	return render_template('index.html', request_method=request_method)
 
-def sendMail(nombre,folio):
+def sendMail(nombre,folio,email):
     port = 465  # For SSL
     mail = 'aadsi6449@gmail.com'
     password = 'Adsi123Adsi'
-    receiver = 'josepe430@gmail.com'
+    receiver = email
 
     message =  MIMEMultipart("alternative")
     message["Subject"] = "Confirmación registro MiVacuna"
@@ -100,7 +100,7 @@ def confirm(curp):
 				'mail':mail,'zip_code':zipc, 'folio':f}
 
 			users.insert_one(doc)
-			sendMail(str(nombre), str(f))
+			sendMail(str(nombre), str(f), str(mail))
 			return render_template('confirm.html', postal = zipc ,fol=f)
 
 	else:
