@@ -10,12 +10,12 @@ En este repositorio se encuentran los archivos del proyecto del equipo LA MÁQUI
 El propósito de este proyecto es crear una página alterna a la oficial, buscando implementar distintas funcionalidades agregadas, así como mejorar la accesibilidad de a misma.
 La página se creó utilizando diversos recursos web y API's que se mencionarán más adelante. 
 #### Registros
-#####![](https://github.com/ADSI-ITAM-2021/LA-MAQUINA-CEMENTERA/blob/main/pagina-web/templates/assets/registro_individual.png?raw=true)
+![](https://github.com/ADSI-ITAM-2021/LA-MAQUINA-CEMENTERA/blob/main/pagina-web/templates/assets/registro_individual.png?raw=true) </br>
 En la página principal se presenta la opción de registrarse conociendo el CURP y botones que llevan a otras opciones de registro.
 	1. Con el CURP.
 	2. Con datos personales.
 	3. Registro de varias personas.
 #### Confirmación
-#####![](https://github.com/ADSI-ITAM-2021/LA-MAQUINA-CEMENTERA/blob/main/pagina-web/templates/assets/registro_completo.png?raw=true)
+![](https://github.com/ADSI-ITAM-2021/LA-MAQUINA-CEMENTERA/blob/main/pagina-web/templates/assets/registro_completo.png?raw=true) </br>
 Después de terminar el registro aparecerá una página confirmando su finalización, además de desplegar el número de folio.
 Adicionalmente llegará un correo con la misma información.
