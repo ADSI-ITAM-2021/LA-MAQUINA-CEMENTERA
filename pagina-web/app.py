@@ -66,6 +66,17 @@ def confirm(curp):
 	
 	return 'cock'
 
+@app.route('/mapa/<string:zipcode>')
+def registrar(zipc):
+	try:
+		postal = int(zipc)
+		#mandar coordinadas al mapa por aqui
+		return render_template('mapa.html',zip_code=postal)
+	except:
+		return 'error'
+
+	return zipc
+
 @app.route('/registrar/<string:curp>', methods=['GET', 'POST'])
 def registrar(curp):
 
@@ -119,7 +130,8 @@ def datos():
 @app.route('/varios', methods=['GET', 'POST'])
 def varios():
 	request_method = request.method
-
+	if request.method == 'POST':
+		print('not cringe')
 
 	return render_template('varios.html')
 
