@@ -99,8 +99,15 @@ def confirm(curp):
 			doc = {'id':curp,'nombre':nombre, 'apellido':apellido, 
 				'mail':mail,'zip_code':zipc, 'folio':f}
 
-			users.insert_one(doc)
-			sendMail(str(nombre), str(f), str(mail))
+			try:
+				users.insert_one(doc)
+			except:
+				return 'cringe 1'
+
+			try:	
+				sendMail(str(nombre), str(f), str(mail))
+			except:
+				return 'cringe 2'
 			return render_template('confirm.html', postal = zipc ,fol=f)
 
 	else:
