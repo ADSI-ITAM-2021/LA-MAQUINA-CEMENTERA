@@ -8,9 +8,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pyfiscal.generate import GenerateRFC, GenerateCURP, GenerateNSS, GenericGeneration
 
-
-
-
 class GenerateDataFiscal(GenericGeneration):
 	generadores = (GenerateCURP, GenerateRFC)
 
@@ -56,10 +53,10 @@ def confirm(curp):
 			f = int(match['folio'])
 			f +=1
 			doc = {'id':curp,'nombre':nombre, 'apellido':apellido, 
-			'mail':mail,'zip_code':zipc, 'folio':f}
+				'mail':mail,'zip_code':zipc, 'folio':f}
 
 			users.insert_one(doc)
-            sendMail(nombre, f)
+			sendMail(nombre, f)
 			return render_template('confirm.html',fol=f)
 
 	else:
