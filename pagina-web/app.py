@@ -41,7 +41,7 @@ def hello_world():
 	return render_template('index.html', request_method=request_method)
 
 def sendMail(nombre,folio,email):
-    port = 465  # For SSL
+    #port = 465  # For SSL
     mail = 'aadsi6449@gmail.com'
     password = 'Adsi123Adsi'
     receiver = email
@@ -71,10 +71,15 @@ def sendMail(nombre,folio,email):
     message.attach(part2)
 
     # Create a secure SSL context
-    context = ssl.create_default_context()
+    #context = ssl.create_default_context()
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
+    with smtplib.SMTP("smtp.gmail.com", 587, context=context) as server:
+    	server.ehlo()
+    	server.starttls()
+    	smtp.ehlo()
+
         server.login(mail, password)
+
         server.sendmail(mail, receiver, message.as_string())
 
 @app.route('/confirm/<string:curp>', methods=['GET', 'POST'])
