@@ -73,6 +73,7 @@ def confirm(curp):
 def mapa(zipc):
 	try:
 		postal = int(zipc)
+		llave = data["google"]
 		#mandar coordinadas al mapa por aqui
 		nomi = pgeocode.Nominatim('mx')
 		df = nomi.query_postal_code(postal.toString())
