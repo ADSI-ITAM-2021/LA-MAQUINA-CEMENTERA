@@ -116,9 +116,12 @@ def datos():
 
 	return render_template('sinCURP.html')
 
-@app.route('/varios')
+@app.route('/varios', methods=['GET', 'POST'])
 def varios():
-	return 'varios'
+	request_method = request.method
+
+
+	return render_template('varios.html')
 
 
 if __name__ == '__main__':
