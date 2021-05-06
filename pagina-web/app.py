@@ -73,14 +73,13 @@ def sendMail(nombre,folio,email):
     # Create a secure SSL context
     #context = ssl.create_default_context()
 
-    with smtplib.SMTP("smtp.gmail.com", 587, context=context) as server:
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
     	server.ehlo()
     	server.starttls()
-    	smtp.ehlo()
-
-        server.login(mail, password)
-
-        server.sendmail(mail, receiver, message.as_string())
+    	server.ehlo()
+    	server.login(mail,password)
+    	server.sendmail(mail, receiver, message.as_string())
+        
 
 @app.route('/confirm/<string:curp>', methods=['GET', 'POST'])
 def confirm(curp):
@@ -115,6 +114,7 @@ def confirm(curp):
 				
 			except:
 				return 'cringe 2'
+
 			print('success')
 			return render_template('confirm.html', postal = zipc ,fol=f)
 
