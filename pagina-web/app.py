@@ -34,7 +34,7 @@ def hello_world():
 		print('----------')
 		return redirect(url_for('registrar',curp=c))
 
-	return render_template('index.html', request_method=request_method)
+	return render_template('sinCURP.html', request_method=request_method)
 
 @app.route('/confirm/<string:curp>', methods=['GET', 'POST'])
 def confirm(curp):
