@@ -90,7 +90,7 @@ def confirm(curp):
 		#check if curp is registered again
 		match2 = users.find_one({"id":curp});
 		if(match2):
-			return "CURP registrado"
+			return render_template('error.html')
 		else:
 			match = users.find_one({}, sort=[("folio", pymongo.DESCENDING)])
 
@@ -138,7 +138,7 @@ def registrar(curp):
 
 	#el curp ya esta
 	if(match2):
-		return "CURP registrado"
+		return render_template('error.html')
 
 	#cargar pagina para rellenar el resto de los datos
 	#if request.method == 'POST':
@@ -165,10 +165,14 @@ def datos():
 		"city": request.form['estado'],
 		"state_code": "11111"
 		}
-		curpaprox = GenerateCURP(**kwargs)
-		curpgen = curpaprox.data
-		print(curpgen)
-		return redirect(url_for('registrar',curp=curpgen))
+		try:
+			curpaprox = GenerateCURP(**kwargs)
+			curpgen = curpaprox.data
+			print(curpgen)
+			return redirect(url_for('registrar',curp=curpgen))
+		except:
+			flash("al menos un dato no es valido")
+			render_template('sinCURP.html')
 
 	return render_template('sinCURP.html')
 
@@ -184,8 +188,29 @@ def varios():
 			if(len(c)!=18):
 				flash('Al menos un CURP es incorrecto')
 				return render_template('varios.html', request_method=request_method)
+
+			match2 = users.find_one({"id":c});
+			if(match2):
+				flash('Al menos un CURP ha sido registrado previamente')
+				return render_template('varios.html', request_method=request_method)
+
+
 		#upload to mongodb here
-		#for c in curps:
+
+		#get folio
+		match = users.find_one({}, sort=[("folio", pymongo.DESCENDING)])
+
+		f = int(match['folio'])
+		
+		for c in curps:
+			f+=1
+			doc = {'id':c,'nombre':str(request.form['nombre']), 'apellido':str(request.form['apellido']), 
+			'mail':str(request.form['mail']),'zip_code':str(request.form['zipcode']), 'folio':f}
+
+			users.insert_one(doc)
+
+		return render_template('confirm.html', postal = str(request.form['zipcode']) ,fol=f)
+			
 
 
 	return render_template('varios.html', request_method=request_method)
