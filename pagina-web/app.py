@@ -14,10 +14,11 @@ from pyfiscal.generate import GenerateRFC, GenerateCURP, GenerateNSS, GenericGen
 
 
 
-
+#pyfiscal, genera curps
 class GenerateDataFiscal(GenericGeneration):
 	generadores = (GenerateCURP, GenerateRFC)
 
+#secret keys para mongodb
 with open('tokens.json') as json_file:
     data = json.load(json_file)
 
@@ -27,7 +28,7 @@ users = client['lamaquina'].usuarios
 app = Flask(__name__)
 app.secret_key = data['mongo']
 
-#aaa
+#email support de flask
 app.config['MAIL_SERVER']='smtp.googlemail.com'
 app.config['MAIL_PORT']=587
 app.config['MAIL_USE_TLS']= True
