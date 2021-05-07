@@ -141,7 +141,7 @@ def confirm(curp):
 			try:	
 				print('trying mail')
 				sendFlaskMail(str(nombre), str(f), str(mail))
-				sendMail(str(nombre), str(f), str(mail))
+				#sendMail(str(nombre), str(f), str(mail))
 				
 			except:
 				return 'cringe 2'
