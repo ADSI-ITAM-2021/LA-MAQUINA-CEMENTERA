@@ -7,6 +7,7 @@ import smtplib, ssl
 import pymongo
 import os
 import pgeocode
+from flask_mail import Mail, Message
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pyfiscal.generate import GenerateRFC, GenerateCURP, GenerateNSS, GenericGeneration
@@ -25,6 +26,24 @@ users = client['lamaquina'].usuarios
 
 app = Flask(__name__)
 app.secret_key = data['mongo']
+
+#aaa
+app.config['MAIL_SERVER']='smtp.googlemail.com'
+app.config['MAIL_PORT']=587
+app.config['MAIL_USE_TLS']= True
+app.config['MAIL_USERNAME']='aadsi6449@gmail.com'
+app.config['MAIL_PASSWORD']='Adsi123Adsi'
+
+mail=Mail(app)
+
+def sendFlaskMail(nombre,folio,emailt):
+	msg = Message('test mail', sender='aadsi6449@gmail.com', recipients=[emailt])
+
+	msg.body = 'hola'
+	mail.send(msg)
+
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def hello_world():
@@ -121,6 +140,7 @@ def confirm(curp):
 
 			try:	
 				print('trying mail')
+				sendFlaskMail(str(nombre), str(f), str(mail))
 				sendMail(str(nombre), str(f), str(mail))
 				
 			except:
