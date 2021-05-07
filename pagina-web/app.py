@@ -62,7 +62,7 @@ def hello_world():
 
 def sendMail(nombre,folio,email):
 
-	
+	#can use diferent mails not only google
     #port = 465  # For SSL
     mail = 'aadsi6449@gmail.com'
     password = 'Adsi123Adsi'
