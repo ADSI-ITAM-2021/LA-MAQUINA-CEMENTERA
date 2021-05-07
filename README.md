@@ -7,6 +7,7 @@ versiones previas se pueden ver alrededor del repositorio
 * [Acerca de la página](#acerca-de-la-página)
     * [Registro](#registros)
     * [Confirmación](#confirmación)
+	* [Información y especificaciones](#información-y-especificaciones)
 ### Acerca de la página
 En este repositorio se encuentran los archivos del proyecto del equipo LA MÁQUINA CEMENTERA para el proyecto final de la materia de Análisis y Diseño de Sistemas de la Información (ADSII) del semestre de primavera 2021.
 El propósito de este proyecto es crear una página alterna a la oficial, buscando implementar distintas funcionalidades agregadas, así como mejorar la accesibilidad de a misma.
@@ -21,3 +22,11 @@ En la página principal se presenta la opción de registrarse conociendo el CURP
 ![](https://github.com/ADSI-ITAM-2021/LA-MAQUINA-CEMENTERA/blob/main/pagina-web/templates/assets/registro_completo.png?raw=true) </br>
 Después de terminar el registro aparecerá una página confirmando su finalización, además de desplegar el número de folio.
 Adicionalmente llegará un correo con la misma información.
+### Información y especificaciones
+En el proyecto se integraron las siguientes tecnologías:
+* mongoDB
+* linode server
+* flask backend
+* bootstrap frontend
+
+
